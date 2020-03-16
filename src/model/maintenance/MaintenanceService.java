@@ -38,13 +38,15 @@ public class MaintenanceService extends Order implements IMaintenance{
 
 	@Override
 	public void listInspections() {
-		// TODO HashMap holds type of inspection and how many months it needs to occur (ex. Pest, 6 months)
+		// TODO HashMap holds type of inspection and how many months it needs to be checked (ex. Pest, 6 months)
 		//list Inspections prints out the type of inspections 
-		inspections.put("pest",  6);
-		inspections.put("plumbing", 6);
 		for(String i : inspections.keySet()) {
 			System.out.print(i+" ");
 		}
+	}
+	public void addInspections(String type, int time) {
+		//adds the inspection to the HashMap based on the type and time. Avoids hard coding entries.
+		inspections.put(type, time);
 	}
 
 	@Override
@@ -57,8 +59,8 @@ public class MaintenanceService extends Order implements IMaintenance{
 		}
 		
 	}
-	public void setFacilityProblems() {
-		facilityProblems.put(orderID, "plumbing");
+	public void setFacilityProblems(int orderID, String type) {
+		facilityProblems.put(orderID, type);
 		
 	}
 	public int getScheduleID() {

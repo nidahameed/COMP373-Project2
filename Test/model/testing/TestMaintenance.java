@@ -17,7 +17,7 @@ class TestMaintenance {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		maintenance.setFacilityProblems();
+		maintenance.setFacilityProblems(0, null);
 		maintenance.setMaintCost();
 		maintenance.setOrderID(1);
 
@@ -72,4 +72,19 @@ class TestMaintenance {
 		//testing ListMaintenance to see if orders are being added as they should be 
 		//created an order and them checked to see if it was properly in the ListMaintenace
 	}
+	@Test
+	void testGetScheduleID() {
+		maintenance.setScheduleID(3244);
+		assertEquals(3244, maintenance.getScheduleID());
+		//testing get and set of scheduleID
+		//created the new schedule ID and returned it
+		
+	}
+	@Test
+	void testGetMaintRequest() {
+		maintenance.setMaintRequest("plumbing, unit 304");
+		assertEquals("plumbing, unit 304", maintenance.getMaintRequest());
+		//testing getting the request by setting and returning the new request
+	}
+	
 }

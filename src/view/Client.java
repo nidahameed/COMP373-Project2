@@ -10,6 +10,9 @@ import model.maintenance.OrderInfo;
 public class Client extends UnitInfo{
 	
 	public static void main(String args [] ) {
+		
+	//testing of the program in addition to JUNIT. ALlows us to check that those that can't 
+	//be tested in JUnit (Like the random number generator) can be tested here. 
 	
 	//facilityTest
 		Facility facility = new Facility(1);
@@ -52,6 +55,7 @@ public class Client extends UnitInfo{
 	System.out.println("Maintenance Cost per request: " + orders.getMaintCost());
 	System.out.println("Total Maintenance:"+ orders.calcMaintenanceCostForFacility());
 	System.out.println("The problem rate for facility is: "+ orders.calcProblemRateforFacility()+"%");
+	@SuppressWarnings("deprecation")
 	Date d1= new Date(20, 3, 1); 
 	orders.setScheduleDate(d1);
 	System.out.println("Schedule Date:"+ orders.getScheduleDate());
@@ -60,7 +64,7 @@ public class Client extends UnitInfo{
 	System.out.print("Maintenance list by ID: ");
 	orders.listMaintenance();
 	System.out.print("Facility problems List: ");
-	orders.setFacilityProblems();
+	orders.setFacilityProblems(1, "plumbing");
 	orders.listFacilityProblems();
 	
 	//use Test
