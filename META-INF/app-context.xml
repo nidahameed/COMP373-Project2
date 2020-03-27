@@ -1,1 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<description>Wiring the dependencies for Facility Management System by Nida and Molly.</description>
+
+	<context:component-scan base-package="model" />
+	
+	<bean id="Facility" class="model.facility.*" scope="prototype">
+		<property name="facilityID">
+			<value>0</value>
+		</property>
+		<property name="FacilityList">
+			<list/>
+			<!--
+			<list>
+				<ref bean="FacilityList" />
+			</list>
+			-->
+		</property>
+		<property name="availableCapacity">
+			<value>0</value>
+		</property>
+		<property name="facilityUse">
+			<value>blank</value>
+		</property>
+		<property name="useInterval">
+			<value>0</value>
+		</property>
+		<property name="downTime">
+			<value>0</value>
+		</property>
+		<property name="usageRate">
+			<value>0</value>
+		</property>
+		<property name="capacity">
+			<value>0</value>
+		</property>
+	</bean>	
+
+
+	
+	
+	<bean id="MaintenanceService" class="model.maintenance.*" scope="prototype">
+		<property name= "listMaintenanceInfo">
+			<list/>
+			<!-- 
+			<list>
+				<ref bean="listMaintenanceInfo" />
+			</list>
+			 -->
+		</property>
+		<property name="requestList">
+			<list/>
+			<!-- 
+			<list>
+				<ref bean="requestList" />
+			</list>
+			 -->
+		</property>
+		<property name="maintenanceInfo" ref="maintenanceInfo" />
+		<property name="maintRequest" ref="maintRequest"/>
+		<property name="maintenanceSchedule" ref="maintenanceSchedule"/>
+		<property name="scheduleID">
+			<value>0</value>
+		</property>
+		<property name="scheduleDate">
+			<value>0</value>
+		</property>
+	</bean>
+	
+	<bean id="Order" class="model.maintenance.*" scope="prototype">
+		<property name= "orderID">
+			<value>0</value>
+		</property>
+	</bean>
+	
+	<bean id="OrderInfo" class="model.maintenance.*" scope="prototype">
+		<property name="capacity">
+			<value>0</value>
+		</property>
+		<property name="listMaintenance">
+			<list/>
+			<!-- 
+			<list>
+				<ref bean="listMaintenance" />
+			</list>
+			 -->
+		</property>
+		<property name="maintCost">
+			<value>0</value>
+		</property>
+	</bean>
+	
+	<bean id="UnitInfo" class="model.use.*" scope="prototype">
+		<property name="unitNumber" ref="unitNumber" />
+		<property name= "name" ref="name" />
+		<property name="facilityName" ref= "facilityName"/>
+		<property name= "UnitList">
+			<list/>
+			<!-- 
+			<list>
+				<ref bean="UnitList" />
+			</list>
+			 -->
+		</property>
+	</bean>
+	
+</beans>
