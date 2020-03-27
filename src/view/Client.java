@@ -1,6 +1,10 @@
 package view;
 import java.util.*;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
 import model.use.UnitInfo;
 import model.facility.Facility;
 import model.facility.FacilityDetails;
@@ -11,11 +15,19 @@ public class Client extends UnitInfo{
 	
 	public static void main(String args [] ) {
 		
+	ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+    System.out.println("***************** Application Context instantiated! ******************");
+
+    //Spring to inject the right object implementation in Facility 
+    //Also, bootstrapping the Facility instantiation using factory
+    Facility facility = (Facility) context.getBean("Facility");
+     
+		
 	//testing of the program in addition to JUNIT. ALlows us to check that those that can't 
 	//be tested in JUnit (Like the random number generator) can be tested here. 
 	
 	//facilityTest
-		Facility facility = new Facility(1);
+	Facility facility1 = new Facility(1);
 	facility.createFacility();
 	System.out.println("New Facility added! The Facility ID is: " + facility.getFacilityID());
 	facility.createFacility();
@@ -36,6 +48,9 @@ public class Client extends UnitInfo{
 	System.out.println("Facility Type:"+facility.assignFacilityToUse());
 	System.out.println("The usage rate is: "+ facility.calcUsageRate(facility.getCapacity(), facility.requestAvailableCapacity()) + "%");
 	
+	
+	//Maintenance Spring
+	MaintenanceService maintenance = (MaintenanceService) context.getBean("MaintenanceService");
 	//Maintenance test
 	MaintenanceService orders = new MaintenanceService();
 	orders.addOrder();
@@ -68,6 +83,7 @@ public class Client extends UnitInfo{
 	orders.listFacilityProblems();
 	
 	//use Test
+	UnitInfo use = (UnitInfo) context.getBean("UnitInfo");
 	
 	UnitInfo renter1= new UnitInfo(); 
 	UnitInfo renter2= new UnitInfo();
