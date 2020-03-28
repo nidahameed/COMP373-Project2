@@ -101,5 +101,23 @@ public class MaintenanceService extends Order implements IMaintenance{
 	public void setMaintenaceSchedule(String maintenaceSchedule) {
 		this.maintenaceSchedule = maintenaceSchedule;
 	}
+	public HashMap<Integer, Date> getSchedule() {
+		return schedule;
+	}
+	public void setSchedule(HashMap<Integer, Date> schedule) {
+		this.schedule = schedule;
+	}
+	public HashMap<String, Integer> getInspections() {
+		return inspections;
+	}
+	public void setInspections(HashMap<String, Integer> inspections) {
+		this.inspections = inspections;
+	}
+	public HashMap<Integer, String> getFacilityProblems() {
+		return facilityProblems;
+	}
+	public void setFacilityProblems(HashMap<Integer, String> facilityProblems) {
+		this.facilityProblems = facilityProblems;
+	}
 	
 }
