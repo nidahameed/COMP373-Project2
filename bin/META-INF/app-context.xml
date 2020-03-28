@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+
+	<description>Wiring the dependencies for Facility Management System by Nida and Molly.</description>
+
+	<context:component-scan base-package="model" />
+	
+	<util:map id= "mapId" map-class="java.util.HashMap" scope="prototype">
+		<entry key="key1">
+			<value>blank</value>
+		</entry>
+	</util:map>
+
+	
+	<bean id="facility" class="model.facility.Facility" scope="prototype"/>
+	<bean id="facilityDetails" class="model.facility.FacilityDetails" scope="prototype">
+		<property name="capacity">
+			<value>100.0</value>
+		</property>
+		<property name="useInterval">
+			<value>12</value>
+		</property>
+		<property name="FacilityList">
+		<!--Facility List injected -->
+			<list/>
+				<!--
+				<list>
+				<ref bean="facilityID" />
+			</list>
+			-->
+		</property>
+		<property name="availableCapacity">
+			<value>0</value>
+		</property>
+	</bean>	
+
+
+
+	<bean id="facilityRequest" class="model.facility.FacilityRequest" scope="prototype"/>
+
+	
+	<bean id="MaintenanceService" class="model.maintenance.MaintenanceService" scope="prototype">
+		<property name="requestList">
+			<list/>
+			<!-- 
+			<list>
+				<ref bean="maintRequest" />
+			</list>
+			 -->
+		</property>
+		<property name= "inspections" ref= "mapId"/>
+		<property name= "facilityProblems" ref= "mapId"/>
+		<property name="maintenanceInfo">
+			<value>blank</value>
+		</property>
+		<property name="maintRequest">
+			<value>blank</value>
+		</property>
+		<property name="maintenaceSchedule">
+			<value>blank</value>
+		</property>
+		<property name="scheduleID">
+			<value>0</value>
+		</property>	
+	</bean>
+	
+	<bean id="Order" class="model.maintenance.Order" scope="prototype">
+		<property name= "orderID">
+			<value>0</value>
+		</property>
+	</bean>
+	
+	<bean id="OrderInfo" class="model.maintenance.OrderInfo" scope="prototype">
+		<property name="capacity">
+			<value>0</value>
+		</property>
+		<property name="listMaintenance">
+			<list/>
+			<!-- 
+			<list>
+				<ref bean="listMaintenance" />
+			</list>
+			 -->
+		</property>
+		<property name="maintCost">
+			<value>0</value>
+		</property>
+	</bean>
+	
+	<bean id="UnitInfo" class="model.use.UnitInfo" scope="prototype">
+		<property name="unitNumber">
+			<value>blank</value>
+		</property>
+		<property name= "roster" ref="mapId"/>
+		<property name= "name">
+			<value>blank</value>
+		</property>
+		<property name="facilityAddress" >
+			<value>blank</value>
+		</property>
+		<property name= "UnitList">
+			<list/>
+			<!-- 
+			<list>
+				<ref bean="UnitList" />
+			</list>
+			 -->
+		</property>
+	</bean>
+	
+
+	
+	
+</beans>
