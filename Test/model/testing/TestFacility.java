@@ -10,7 +10,7 @@ import model.facility.Facility;
 
 class TestFacility {
 
-	Facility facility = new Facility(10);
+	Facility facility = new Facility();
 	
 	@BeforeEach
 	void setUp() throws Exception {

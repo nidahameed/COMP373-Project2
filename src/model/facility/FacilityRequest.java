@@ -2,8 +2,8 @@ package model.facility;
 
 public class FacilityRequest extends FacilityDetails{
 	
-	public FacilityRequest(int facilityID) {
-		super(facilityID);
+	public FacilityRequest() {
+		
 	}
 	public String assignFacilityToUse() {
 		String facilityUse= "apartment";

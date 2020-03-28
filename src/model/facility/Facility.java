@@ -4,8 +4,8 @@ import java.util.*;
 public class Facility extends FacilityRequest implements IFacility {
 	
 	
-	public Facility(int facilityID) {
-		super(facilityID);
+	public Facility() {
+		
 	}
 	
 

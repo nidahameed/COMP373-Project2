@@ -9,10 +9,10 @@ public class FacilityDetails {
 	double availableCapacity= 0;
 	ArrayList<Integer> FacilityList= new ArrayList<Integer>(); 
 	
-	
-	public FacilityDetails(int facilityID) {
+	public FacilityDetails() {
 		
 	}
+	
 	public int inUseDuringInterval() {
 		//This is the renter's lease length. 12 months. how many years they are renting 
 		useInterval=12;
@@ -21,7 +21,7 @@ public class FacilityDetails {
 	public String addFacilityDetail() {
 		//TODO Add address update later. 
 		String facilityInfo= "Available Capacity: " + requestAvailableCapacity() 
-		+ "\n ID:"+ facilityID;
+		+ "\nID:"+ facilityID;
 		return facilityInfo;
 		
 	}

@@ -4,7 +4,7 @@ import java.util.*;
 public class MaintenanceService extends Order implements IMaintenance{
 
 	HashMap <Integer, Date> schedule= new HashMap<Integer, Date>();
-	ArrayList <String> listMaintenanceInfo= new ArrayList(); 
+	//ArrayList <String> listMaintenanceInfo= new ArrayList(); 
 	ArrayList <String> requestList= new ArrayList();
 	HashMap <String, Integer> inspections= new HashMap<String, Integer>();
 	HashMap <Integer, String> facilityProblems= new HashMap<Integer, String>();
@@ -89,7 +89,17 @@ public class MaintenanceService extends Order implements IMaintenance{
 		scheduleID= orderID;
 		schedule.put(scheduleID, scheduleDate);	
 	}
-	
-	
+	public ArrayList<String> getRequestList() {
+		return requestList;
+	}
+	public void setRequestList(ArrayList<String> requestList) {
+		this.requestList = requestList;
+	}	
+	public String getMaintenaceSchedule() {
+		return maintenaceSchedule;
+	}
+	public void setMaintenaceSchedule(String maintenaceSchedule) {
+		this.maintenaceSchedule = maintenaceSchedule;
+	}
 	
 }

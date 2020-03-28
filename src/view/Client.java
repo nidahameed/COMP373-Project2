@@ -3,6 +3,7 @@ import java.util.*;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.BeanFactory;
 
 
 import model.use.UnitInfo;
@@ -20,14 +21,13 @@ public class Client extends UnitInfo{
 
     //Spring to inject the right object implementation in Facility 
     //Also, bootstrapping the Facility instantiation using factory
-    Facility facility = (Facility) context.getBean("Facility");
-     
+    Facility facility = (Facility) context.getBean("facility");
 		
 	//testing of the program in addition to JUNIT. ALlows us to check that those that can't 
 	//be tested in JUnit (Like the random number generator) can be tested here. 
 	
 	//facilityTest
-	Facility facility1 = new Facility(1);
+	Facility facility1 = new Facility();
 	facility.createFacility();
 	System.out.println("New Facility added! The Facility ID is: " + facility.getFacilityID());
 	facility.createFacility();
@@ -47,7 +47,6 @@ public class Client extends UnitInfo{
 	System.out.println("Rentals length: " +facility.inUseDuringInterval());
 	System.out.println("Facility Type:"+facility.assignFacilityToUse());
 	System.out.println("The usage rate is: "+ facility.calcUsageRate(facility.getCapacity(), facility.requestAvailableCapacity()) + "%");
-	
 	
 	//Maintenance Spring
 	MaintenanceService maintenance = (MaintenanceService) context.getBean("MaintenanceService");
@@ -92,14 +91,6 @@ public class Client extends UnitInfo{
 	renter2.setName("Jimmy Neutron");
 	System.out.println("New resident! Name: "+ renter2.getName()+ " in Unit: "+ renter2.getUnitNumber());
 	System.out.println("Facility Address: "+ renter1.getFacilityAddress());
-	
-	
-	
-	
-	
-
-
-	
 	
 	
 	}
