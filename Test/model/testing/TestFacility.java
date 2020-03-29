@@ -75,7 +75,7 @@ class TestFacility {
 	@Test
 	void testAddFacilityDetail() {
 		facility.createFacility();
-		assertEquals("Available Capacity: 99.0\n ID:2", facility.addFacilityDetail());
+		assertEquals("Available Capacity: 99.0\nID:2", facility.addFacilityDetail());
 		
 	}
 	

@@ -41,7 +41,6 @@ public class UnitInfo implements IUse {
 	}
 	@Override
 	public void listUnitInfo() {
-		
 		for(String i: roster.keySet()) {
 			System.out.println("key: "+i +"value: "+ roster.get(i));
 		}

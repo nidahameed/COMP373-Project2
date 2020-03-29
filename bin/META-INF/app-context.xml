@@ -5,18 +5,32 @@
 	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/util 
-		http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+		http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
 	<description>Wiring the dependencies for Facility Management System by Nida and Molly.</description>
 
 	<context:component-scan base-package="model" />
 	
-	<util:map id= "mapId" map-class="java.util.HashMap" scope="prototype">
+	<util:map id= "mapId" map-class="java.util.HashMap">
 		<entry key="key1">
-			<value>blank</value>
+			<value>value1</value>
 		</entry>
 	</util:map>
-
+	
+	<bean id="map2" class="java.util.HashMap" scope="prototype" >
+    <constructor-arg>
+        <map key-type="java.lang.Integer" value-type="java.lang.String">
+        </map>
+    </constructor-arg>
+	</bean>
+	
+	<bean id="map3" class="java.util.HashMap" scope="prototype" >
+    <constructor-arg>
+        <map key-type="java.lang.String" value-type="java.lang.Integer">
+        </map>
+    </constructor-arg>
+	</bean>
+	
 	
 	<bean id="facility" class="model.facility.Facility" scope="prototype"/>
 	<bean id="facilityDetails" class="model.facility.FacilityDetails" scope="prototype">
@@ -54,8 +68,11 @@
 			</list>
 			 -->
 		</property>
-		<property name= "inspections" ref= "mapId"/>
-		<property name= "facilityProblems" ref= "mapId"/>
+		
+		<property name= "inspections" ref="map3"/>
+		
+		<property name= "facilityProblems" ref= "map2"/>
+		
 		<property name="maintenanceInfo">
 			<value>blank</value>
 		</property>

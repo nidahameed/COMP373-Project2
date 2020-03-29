@@ -27,7 +27,7 @@ public class Client extends UnitInfo{
 	//be tested in JUnit (Like the random number generator) can be tested here. 
 	
 	//facilityTest
-	Facility facility1 = new Facility();
+	//Facility facility1 = new Facility();
 	facility.createFacility();
 	System.out.println("New Facility added! The Facility ID is: " + facility.getFacilityID());
 	facility.createFacility();
@@ -49,9 +49,9 @@ public class Client extends UnitInfo{
 	System.out.println("The usage rate is: "+ facility.calcUsageRate(facility.getCapacity(), facility.requestAvailableCapacity()) + "%");
 	
 	//Maintenance Spring
-	MaintenanceService maintenance = (MaintenanceService) context.getBean("MaintenanceService");
+	MaintenanceService orders = (MaintenanceService) context.getBean("MaintenanceService");
 	//Maintenance test
-	MaintenanceService orders = new MaintenanceService();
+		//MaintenanceService orders = new MaintenanceService();
 	orders.addOrder();
 	System.out.println("New order added! Order ID:"+ orders.getOrderID());
 	orders.setOrderDate();
@@ -73,6 +73,7 @@ public class Client extends UnitInfo{
 	Date d1= new Date(20, 3, 1); 
 	orders.setScheduleDate(d1);
 	System.out.println("Schedule Date:"+ orders.getScheduleDate());
+	orders.addInspections("plumbing", 6);
 	System.out.print("Inspection types: ");
 	orders.listInspections();
 	System.out.print("Maintenance list by ID: ");
@@ -82,6 +83,7 @@ public class Client extends UnitInfo{
 	orders.listFacilityProblems();
 	
 	//use Test
+	//Use Spring; instantiation
 	UnitInfo use = (UnitInfo) context.getBean("UnitInfo");
 	
 	UnitInfo renter1= new UnitInfo(); 

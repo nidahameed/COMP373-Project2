@@ -6,7 +6,7 @@ public class MaintenanceService extends Order implements IMaintenance{
 	HashMap <Integer, Date> schedule= new HashMap<Integer, Date>();
 	//ArrayList <String> listMaintenanceInfo= new ArrayList(); 
 	ArrayList <String> requestList= new ArrayList();
-	HashMap <String, Integer> inspections= new HashMap<String, Integer>();
+	HashMap <String, Integer> inspections = new HashMap<String, Integer>();
 	HashMap <Integer, String> facilityProblems= new HashMap<Integer, String>();
 	String maintenanceInfo; 
 	String maintRequest; 
