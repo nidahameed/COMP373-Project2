@@ -1,7 +1,9 @@
 # COMP373-P1
 
 Project 1 and Project 2 additions. 
+
 Submission by Molly Dunn and Nida Hameed
+
 All coding was done with pair programming technique. 
 
 ## To Run
