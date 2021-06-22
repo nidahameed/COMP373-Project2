@@ -1,9 +1,11 @@
 # COMP373-P1
 
-Project 1 Submission by Molly Dunn and Nida Hameed
+Project 1 and Project 2 additions. 
+Submission by Molly Dunn and Nida Hameed
+All coding was done with pair programming technique. 
 
 ## To Run
-To Run: add this project to your workspace in Eclipse. Then, run the Client.java file to run the project and see the output. 
+To Run: add this project to your workspace in Eclipse. Then, run the Client.java file in view to run the project and see the output. 
    
 To Run Tests: if you would like to specifically run the JUnit tests for this project, they can be found under Tests and model.testing. 
 
